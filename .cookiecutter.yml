@@ -1,0 +1,4 @@
+---
+default_context:
+  module_name: tf-module-aws-exercise1
+  template_version: 0.1
