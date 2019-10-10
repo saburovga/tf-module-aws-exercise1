@@ -5,5 +5,7 @@ resource "aws_instance" "ec2-exercise1" {
         Name="ec2-exercise1"
     }
     #key_name="my_key"
-    security_groups=["sg-a736e4e5"]
+	
+    vpc_security_group_ids = ["sg-a736e4e5"]
+	subnet_id = "subnet-234fd544"
 }
