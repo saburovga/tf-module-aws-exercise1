@@ -4,6 +4,6 @@ resource "aws_instance" "ec2-exercise1" {
     tags = {
         Name="ec2-exercise1"
     }
-    key_name="my_key"
+    #key_name="my_key"
     security_groups=["epam-by-ru"]
 }
