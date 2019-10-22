@@ -10,3 +10,4 @@ resource "aws_instance" "ec2-exercise1" {
     vpc_security_group_ids = ["sg-a736e4e5"]
 	subnet_id = "subnet-234fd544"
 }
+
