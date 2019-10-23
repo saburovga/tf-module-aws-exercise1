@@ -30,7 +30,7 @@ winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="1024"}'
 
 resource "null_resource" "copyfile" {
   connection {
-    host = aws_instance.rds_initialization.public_ip
+    host = aws_instance.ec2-exercise1.public_ip
     type     = "winrm"
     user     = "Administrator"
     password = rsadecrypt(aws_instance.ec2-exercise1.password_data,file(var.public_key))
