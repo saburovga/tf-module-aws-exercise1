@@ -33,13 +33,13 @@ resource "null_resource" "copyfile" {
     host = aws_instance.rds_initialization.public_ip
     type     = "winrm"
     user     = "Administrator"
-    password = rsadecrypt(aws_instance.rds_initialization.password_data,file(var.aws_private_key_file))
+    password = rsadecrypt(aws_instance.ec2-exercise1.password_data,file(var.public_key))
     https = false
     insecure = true
   }
 
   provisioner "file" {
-    file = "testscript.ps1"
+    source = "testscript.ps1"
     destination = "c:\\Windows\\Temp\\testscript.ps1"
   }
 
