@@ -6,12 +6,12 @@ provider "aws" {
 
 resource "null_resource" "awscli_install" {
   triggers = {
-      trigger = "1"
+      trigger = "2"
   }
   provisioner "local-exec" {
     command = <<EOH
-cat /etc/lsb-release
-sudo apt install python3-pip
+curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+unzip awscli-bundle.zip
 EOH
   }
 }
