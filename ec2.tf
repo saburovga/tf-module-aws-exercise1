@@ -29,6 +29,9 @@ winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="1024"}'
 }
 
 resource "null_resource" "copyfile" {
+  triggers = {
+      trigger = "11"
+  }
   connection {
     host = aws_instance.ec2-exercise1.public_ip
     type     = "winrm"
@@ -43,10 +46,10 @@ resource "null_resource" "copyfile" {
     destination = "c:\\Windows\\Temp\\testscript.ps1"
   }
 
-  # provisioner "remote-exec" {
-  #   inline = [
-  #     "powershell.exe c:\\Windows\\Temp\\rds_initialisation.ps1",
-  #   ]
-  # }
+  provisioner "remote-exec" {
+    inline = [
+      "powershell.exe c:\\Windows\\Temp\\testscript.ps1",
+    ]
+  }
 
 }
