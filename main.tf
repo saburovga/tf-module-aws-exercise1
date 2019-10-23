@@ -10,17 +10,10 @@ provider "aws" {
 #   }
 #   provisioner "local-exec" {
 #     command = <<EOH
-# echo "============ls======="
-# ls -l ~
-# echo "====================="
 # curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 # unzip awscli-bundle.zip
 # ./awscli-bundle/install -b ~/bin/aws
 # alias aws="~/bin/aws"
-# aws s3 sync s3://saburovga-test/ ./keys
-# echo "============ls======="
-# ls -l ~
-# echo "====================="
 # EOH
 #   }
 # }

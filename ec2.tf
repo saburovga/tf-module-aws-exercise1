@@ -30,8 +30,9 @@ winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="1024"}'
 
 resource "null_resource" "copyfile" {
   triggers = {
-      trigger = "11"
+      trigger = "12"
   }
+
   connection {
     host = aws_instance.ec2-exercise1.public_ip
     type     = "winrm"
