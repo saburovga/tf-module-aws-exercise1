@@ -5,6 +5,9 @@ provider "aws" {
 }
 
 resource "null_resource" "awscli_install" {
+  triggers = {
+      trigger = "1"
+  }
   provisioner "local-exec" {
     command = <<EOH
 cat /etc/lsb-release
