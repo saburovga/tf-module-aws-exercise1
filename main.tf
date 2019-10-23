@@ -7,9 +7,7 @@ provider "aws" {
 resource "null_resource" "awscli_install" {
   provisioner "local-exec" {
     command = <<EOH
-pip3 install awscli --upgrade --user
-export PATH=~/.local/bin:$PATH
-aws --version
+cat /etc/lsb-release
 EOH
   }
 }
