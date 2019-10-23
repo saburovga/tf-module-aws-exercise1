@@ -8,6 +8,7 @@ resource "null_resource" "awscli_install" {
   provisioner "local-exec" {
     command = <<EOH
 cat /etc/lsb-release
+sudo apt install python3-pip
 EOH
   }
 }
