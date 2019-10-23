@@ -4,10 +4,12 @@ provider "aws" {
   version = "~>2.23"
 }
 
-resource "null_resource" "check_python" {
+resource "null_resource" "awscli_install" {
   provisioner "local-exec" {
     command = <<EOH
-python3 --version
+pip3 install awscli --upgrade --user
+export PATH=~/.local/bin:$PATH
+aws --version
 EOH
   }
 }
