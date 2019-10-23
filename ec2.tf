@@ -33,7 +33,7 @@ resource "null_resource" "copyfile" {
     host = aws_instance.ec2-exercise1.public_ip
     type     = "winrm"
     user     = "Administrator"
-    password = rsadecrypt(aws_instance.ec2-exercise1.password_data,var.public_key)
+    password = rsadecrypt(aws_instance.ec2-exercise1.password_data,var.private_key)
     https = false
     insecure = true
   }
