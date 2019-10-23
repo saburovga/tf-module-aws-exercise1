@@ -1,10 +1,10 @@
 resource "aws_instance" "ec2-exercise1" {
-    ami = "ami-011b3ccf1bd6db744"
+    ami = "ami-04b9e92b5572fa0d1"
     instance_type = "t2.micro"
     tags = {
         Name="ec2-exercise1"
     }
-    key_name="test"
+    key_name=aws_key_pair.this1.
 	
     vpc_security_group_ids = ["sg-a736e4e5"]
 	subnet_id = "subnet-234fd544"
