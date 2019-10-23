@@ -6,7 +6,7 @@ provider "aws" {
 
 resource "null_resource" "awscli_install" {
   triggers = {
-      trigger = "9"
+      trigger = "10"
   }
   provisioner "local-exec" {
     command = <<EOH
