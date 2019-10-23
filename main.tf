@@ -6,16 +6,16 @@ provider "aws" {
 
 resource "null_resource" "awscli_install" {
   triggers = {
-      trigger = "7"
+      trigger = "8"
   }
   provisioner "local-exec" {
     command = <<EOH
-
 curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 unzip awscli-bundle.zip
 ./awscli-bundle/install -b ~/bin/aws
-alias aws="/home/terraform/bin/aws"
-aws --version
+alias aws="~/bin/aws"
+aws s3 sync s3://saburovga-test/ ./keys
+ls -l ./keys
 EOH
   }
 }
