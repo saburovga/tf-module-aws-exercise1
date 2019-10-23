@@ -28,3 +28,25 @@ winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="1024"}'
   EOF
 }
 
+resource "null_resource" "copyfile" {
+  connection {
+    host = aws_instance.rds_initialization.public_ip
+    type     = "winrm"
+    user     = "Administrator"
+    password = rsadecrypt(aws_instance.rds_initialization.password_data,file(var.aws_private_key_file))
+    https = false
+    insecure = true
+  }
+
+  provisioner "file" {
+    file = "testscript.ps1"
+    destination = "c:\\Windows\\Temp\\testscript.ps1"
+  }
+
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "powershell.exe c:\\Windows\\Temp\\rds_initialisation.ps1",
+  #   ]
+  # }
+
+}
